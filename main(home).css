@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100;200&display=swap');
+
+* {
+    font-family: 'Geologica', sans-serif;
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+#officeimg {
+    display: inline-block; 
+    align-items: center;
+}
+
+#battery {
+    font-size: 40px;
+    color: white;
+    float: right;
+    margin: 40px;
+    font-weight: bold;
+}
+
+#night {
+    font-size: 40px;
+    color: white;
+    float: left;
+    margin: 40px;
+    font-weight: bold;
+}
+
+#camerabutton {
+    width: 560px;
+    height: 100px;
+    font-size: 50px;
+    font-weight: bold;
+    opacity: 30%;
+    border: none;
+    border-radius: 30px;
+    background-color: brown;
+    position: absolute;
+    left: 50%;
+    top: 84vh;
+    transform: translateX(-50%);
+    transition: .5s;
+}
+
+#camerabutton:hover {
+    opacity: 50%;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#leftlight {
+    width: 160px;
+    height: 400px;
+    font-size: 50px;
+    font-weight: bold;
+    opacity: 10%;
+    border: none;
+    border-radius: 30px;
+    background-color: green;
+    position: absolute;
+    float: left;
+    top: 30%;
+    left: 35px;
+    transition: .5s;
+}
+
+#leftlight:hover {
+    opacity: 30%;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#leftlight:active {
+    background-position-x: left;
+}
+
+#rightlight {
+    width: 160px;
+    height: 400px;
+    font-size: 50px;
+    font-weight: bold;
+    opacity: 10%;
+    border: none;
+    border-radius: 30px;
+    background-color: green;
+    position: absolute;
+    float: right;
+    top: 30%;
+    right: 35px;
+    transition: .5s;
+}
+
+#rightlight:hover {
+    opacity: 30%;
+    cursor: pointer;
+    transition: .5s;
+}
+
+#rightlight:active {
+}
+
+@keyframes leftmoveing {
+    0% {
+        background-position-x: center;
+    }
+    100% {
+        background-position-x: left;
+    }
+}

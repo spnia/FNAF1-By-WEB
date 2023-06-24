@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" style="background: url(${bonnie}) no-repeat center fixed; background-size: cover;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cam 4 [ONLY HTML/CSS]</title>
+    <link rel="stylesheet" href="camera1.css">
+</head>
+
+<body>
+    <span id="roomposition">Cam4 - West Hall(North)</span>
+    <span id="battery">100</span>
+    <button id="camerabutton" onclick="location.href='main(home).html'">Down Camera</button>
+    <div id="camroom">
+        <button id="cam" class="cam1" onclick="location.href='camera1.html'">Cam 1</button>
+        <button id="cam" class="cam2" onclick="location.href='camera2.html'">Cam 2</button>
+        <button id="cam" class="cam3" onclick="location.href='camera3.html'">Cam 3</button>
+        <button id="cam" class="cam4">Here</button>
+        <button class="trans"></button>
+        <button id="cam" class="cam5">error</button>
+        <button id="cam" class="cam6" onclick="location.href='camera6.html'">Cam 6</button>
+        <button id="cam" class="your">YOUR</button>
+        <button id="cam" class="cam7">error</button>
+    </div>
+    <script>
+        // 숫자를 감소시키는 함수
+        function decreaseValue() {
+            // 로컬 스토리지에서 'timeValue' 값을 가져옴
+            var timeValue = parseInt(localStorage.getItem('timeValue'));
+
+            // timeValue 값이 0보다 큰 경우에만 감소시킴
+            if (timeValue > 0) {
+                timeValue--;
+                // 감소된 값을 로컬 스토리지에 다시 저장
+                localStorage.setItem('timeValue', timeValue);
+                // span 요소의 텍스트 값을 갱신
+                document.getElementById('battery').textContent = timeValue + "%";
+            }
+
+            // timeValue 값이 0인 경우 10초 후에 C.html로 자동 이동
+            if (timeValue === 0) {
+                setTimeout(function () {
+                    window.location.href = 'C.html';
+                }, 10000);
+            }
+        }
+
+        //화면 변경되는 타이머를 로컬 스토리지에 저장
+        function bonnietime() {
+            var bonnietime = parseInt(localStorage.getItem('bonnietime'));
+            var bonnietime2 = parseInt(localStorage.getItem('bonnietime2'));
+            var bonnietime3 = parseInt(localStorage.getItem('bonnietime3'));
+
+            if (bonnietime > 0) {
+                bonnietime--;
+                localStorage.setItem('bonnietime', bonnietime);
+            }
+
+            //bonnietime가 0이면
+            if (bonnietime === 0) {
+                location.reload();
+                localStorage.removeItem('bonnietime');
+                bonnietime2 = 60;
+                localStorage.setItem('bonnietime2', bonnietime2);
+            }
+
+            if (bonnietime2 > 0) {
+                bonnietime2--;
+                localStorage.setItem('bonnietime2', bonnietime2);
+            }
+
+            if (bonnietime2 === 0) {
+                location.reload();
+                localStorage.removeItem('bonnietime2');
+                bonnietime3 = 60;
+                localStorage.setItem('bonnietime3', bonnietime3);
+            }
+
+            if (bonnietime3 > 0) {
+                bonnietime3--;
+                localStorage.setItem('bonnietime3', bonnietime3);
+            }
+
+            if (bonnietime3 === 0) {
+                location.reload();
+                localStorage.removeItem('bonnietime3');
+            }
+        }
+
+        function bonnietimer2() {
+            var bonnietime2 = localStorage.getItem('bonnietime2');
+
+            if (!localStorage.getItem('visitedToken2')) {
+                if (!bonnietime2) {
+                    bonnietime2 = 60;
+                    localStorage.setItem('bonnietime2', bonnietime2);
+                }
+            }
+        }
+
+        function bonnietimer3() {
+            var bonnietime3 = localStorage.getItem('bonnietime3');
+            if (!localStorage.getItem('visitedToken3')) {
+                if (!bonnietime3) {
+                    bonnietime3 = 10;
+                    localStorage.setItem('bonnietime3', bonnietime3);
+                }
+            }
+        }
+
+        // 페이지가 로드될 때 초기 값을 설정
+        document.addEventListener("DOMContentLoaded", function () {
+            // 로컬 스토리지에서 'timeValue' 값을 가져옴
+            var timeValue = localStorage.getItem('timeValue');
+            // 로컬 스토리지에 'timeValue' 값이 없을 경우 초기 값을 100으로 설정
+            if (!timeValue) {
+                timeValue = 100;
+                localStorage.setItem('timeValue', timeValue);
+            }
+
+            localStorage.setItem('visitedToken', 'true');
+
+            // span 요소의 텍스트 값을 초기 값으로 설정
+            document.getElementById('battery').textContent = timeValue + "%";
+        });
+
+        function bonnie() {
+            var bonnietime = localStorage.getItem('bonnietime');
+            var bonnietime2 = localStorage.getItem('bonnietime2');
+            if (!bonnietime) {
+                document.documentElement.style.background = 'url(WestHallimg/bonnie.webp) no-repeat center fixed';
+                document.documentElement.style.backgroundSize = 'cover';
+            } else {
+                document.documentElement.style.background = 'url(WestHallimg/WestHall1.webp) no-repeat center fixed';
+                document.documentElement.style.backgroundSize = 'cover';
+            }
+
+            if (!bonnietime2) {
+                document.documentElement.style.background = 'url(WestHallimg/WestHall1.webp) no-repeat center fixed';
+                document.documentElement.style.backgroundSize = 'cover';
+            } else {
+                document.documentElement.style.background = 'url(WestHallimg/bonnie.webp) no-repeat center fixed';
+                document.documentElement.style.backgroundSize = 'cover';
+            }
+        }
+
+        bonnie();
+
+        setInterval(decreaseValue, 2000);
+
+        setInterval(bonnietime, 1000);
+    </script>
+</body>
+
+</html>

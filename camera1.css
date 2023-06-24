@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100;200&display=swap');
+
+* {
+    font-family: 'Geologica', sans-serif;
+}
+
+body, html {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    animation: moveing 10s linear infinite;
+}
+
+#roomposition {
+    font-size: 40px;
+    color: white;
+    float: left;
+    margin: 40px;
+    font-weight: bold;
+}
+
+#battery {
+    font-size: 40px;
+    color: white;
+    float: right;
+    margin: 40px;
+    font-weight: bold;
+}
+
+#camerabutton {
+    width: 560px;
+    height: 100px;
+    font-size: 50px;
+    font-weight: bold;
+    opacity: 30%;
+    border: none;
+    border-radius: 30px;
+    background-color: brown;
+    position: absolute;
+    left: 50%;
+    top: 84vh;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: .5s;
+}
+
+#camerabutton:hover {
+    opacity: 50%;
+    transition: .5s;
+}
+
+#camroom {
+    margin: 7vh;
+    margin-right: -100px;
+    margin-top: 60vh;
+    float: right;
+    display: grid;
+    width: 400px;
+    height: 300px;
+    grid-gap: 10px;
+    grid-template-areas: 
+    'cam1 cam2 cam3'
+    'cam4 trans cam5'
+    'cam6 office cam7';
+    text-align: center;
+}
+
+.cam1 {
+    grid-area: cam1;
+    background-color: green;
+    border: 7px solid darkgreen;
+}
+
+.cam2 {
+    grid-area: cam2;
+    background-color: green;
+    border: 7px solid darkgreen;
+}
+
+.cam3 {
+    grid-area: cam3;
+    background-color: green;
+    border: 7px solid darkgreen;
+}
+
+.cam4 {
+    grid-area: cam4;
+    background-color: green;
+    border: 7px solid darkgreen;
+}
+
+.trans {
+    opacity: 0%;
+    grid-area: trans;
+    background-color: green;
+    border: 7px solid darkgreen;
+}
+
+.cam5 {
+    grid-area: cam5;
+    background-color: red;
+    border: 7px solid darkred;
+}
+
+.cam6 {
+    grid-area: cam6;
+    background-color: green;
+    border: 7px solid darkgreen;
+}
+
+.your {
+    grid-area: office;
+    background-color: green;
+    border: 7px solid darkgreen;
+}
+
+.cam7 {
+    grid-area: cam7;
+    background-color: red;
+    border: 7px solid darkred;
+}
+
+#cam {
+    opacity: 50%;
+    transition: .2s;
+}
+
+#cam:hover {
+    opacity: 70%;
+    cursor: pointer;
+    transition: .2s;
+}
+
+@keyframes moveing {
+    0% {
+        background-position-x: left;
+    }
+    50% {
+        background-position-x: right;
+    }
+    100% {
+        background-position-x: left;
+    }
+}
+
+@keyframes battery {
+    0% {
+        content: "100%";
+    }
+    50% {
+        content: "50%";
+    }
+    100% {
+        content: "0%";
+    }
+}
